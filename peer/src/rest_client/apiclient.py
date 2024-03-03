@@ -45,7 +45,7 @@ class APIClient(cmd.Cmd):
             return True, query_response.json()
         
     def do_download(self, url, querydata, authToken):
-        error, query_response = self.do_query(self, url, querydata, authToken)
+        error, query_response = self.do_query(url, querydata, authToken)
         if error:
             return query_response.json()
         #specurl = url + "api/v1/query?file=" + querydata['filename']
