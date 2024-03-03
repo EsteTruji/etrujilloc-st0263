@@ -36,12 +36,26 @@ def conversion_procedure():
 
     conversion_type = input("Conversion type: ")
     print(" ")
+
+    conversions = ["COP2USD", "USD2COP", "COP2EUR", "EUR2COP",  "COP2GBP", "GBP2COP",  "COP2JPY", "JPY2COP", "COP2AUD", "AUD2COP"]
+
+    while conversion_type not in conversions:
+        conversion_type = input("Write a valid conversion type: ")
+        print(" ")
+
     print("Now, please write the amount you want to convert:")
     print(" ")
-
-    amount = float(input("Amount: "))
-    print(" ")
-    querydata = {"conversion": conversion_type, "amount": amount}
+    while True:
+        try:
+            amount = float(input("Amount: "))
+            print(" ")
+            break
+        
+        except:
+            print("Invalid amount. Write a valid number.")
+            print(" ")
+            
+    querydata = {"conversion": conversion_type, "amount": amount}        
     return querydata
     
 
