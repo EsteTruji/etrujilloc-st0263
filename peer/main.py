@@ -3,6 +3,7 @@ from src.rest_client.messages import Messages
 from src.rest_client.setup import SetUp
 from dotenv import load_dotenv
 import os
+import sys
 load_dotenv()
 #from peer.src.rest_client.verification import Verify
 
@@ -70,12 +71,19 @@ if __name__ == "__main__":
 
     LogIn_data = {"username": username, "password": password, "user_url": user_url+":"+user_port}
     
-    login_response = setup.logIn(client.url_servidor, LogIn_data)
-    
-    print("Logged in successfully!!")
-    print("Assigned security token:",login_response['token'])
-    authToken = login_response['token']
+    error, login_response = setup.logIn(client.url_servidor, LogIn_data)
+    if error:
+        print(login_response['message'])
+        sys.exit()
+    else:
+        print("Logged in successfully!!")
+        print("Assigned security token:",login_response['token'])
+        authToken = login_response['token']
 
+
+    
+    
+    
     list = SetUp.get_files_in_folder()
     sent_index_files = setup.do_sendIndex(client.url_servidor, list, authToken)
     print(sent_index_files['message'])
