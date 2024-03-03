@@ -6,6 +6,7 @@ class SetUp():
     
     def logIn(self, url, LogIn_data):
         specurl = url + "api/v1/login"
+        print(LogIn_data["user_url"])
         try:
             login_response = requests.post(specurl, json=LogIn_data)
             login_response.raise_for_status()
@@ -16,7 +17,7 @@ class SetUp():
         
     def get_files_in_folder():
         files_array = []
-        folder_path = os.path.join(os.path.dirname(__file__), "files")
+        folder_path = os.path.join(os.path.dirname(__file__), '..', 'files')
         for file_name in os.listdir(folder_path):
             if os.path.isfile(os.path.join(folder_path, file_name)):
                 files_array.append(file_name)

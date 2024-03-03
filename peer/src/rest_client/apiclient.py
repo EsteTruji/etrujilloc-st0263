@@ -40,12 +40,12 @@ class APIClient(cmd.Cmd):
             query_response.raise_for_status()
             #client_grpc = Client_Remote()
             #client_grpc.download(f"{self.ipl}:{self.port2}", querydata['filename'])
-            return query_response.json()
+            return False, query_response.json()
         
         
         except requests.exceptions.RequestException as e:
-            print(f"Error making request: {e}")
-            return None
+            #print(f"Error making request: {e}")
+            return True, query_response.json()
         
     def do_download(self, url, querydata, authToken):
         specurl = url + "api/v1/query?file=" + querydata['filename']
@@ -53,21 +53,23 @@ class APIClient(cmd.Cmd):
             "Authorization": authToken
         }
         try:
+            #print("llegue a try")
             query_response = requests.get(specurl, headers=headers)
-            query_response.raise_for_status()
+            #print("query response", query_response)
+            #query_response.raise_for_status()
             #print(query_response)
             json_response = json.loads(query_response.text)
-            print("json: ",json_response)
-            print("query:", querydata)
+            #print("json: ",json_response)
+            #print("query:", querydata)
             client_grpc = Client_Remote()
             
             dresponse = client_grpc.download(f"{json_response['location']}", querydata['filename'])
-            return dresponse
+            return False, dresponse.json()
         
         
         except requests.exceptions.RequestException as e:
-            print(f"Error making request: {e}")
-            return None
+            #print(f"Error making request: {e}")
+            return True, query_response.json()
         
     def do_upload(self, url, querydata, authToken):
         specurl = url + "api/v1/getPeerUploading"
@@ -80,14 +82,14 @@ class APIClient(cmd.Cmd):
             json_response = json.loads(query_response.text)
             print("json: ",json_response)
             client_grpc = Client_Remote()
-            client_grpc.upload(f"{json_response['location']}", querydata['filename'])
-            return query_response.json()
+            upresponse = client_grpc.upload(f"{json_response['location']}", querydata['filename'])
+            return False, upresponse.json()
         
         
         except requests.exceptions.RequestException as e:
-            jsonstring = json.loads(query_response.text)
-            print(f"Error making request: {jsonstring['message']}")
-            return None
+            #jsonstring = json.loads(query_response.text)
+            #print(f"Error making request: {jsonstring['message']}")
+            return True, query_response.json()
         
     
     def do_conversion(self, url, querydata, authToken):
@@ -103,13 +105,13 @@ class APIClient(cmd.Cmd):
             print("json: ",json_response)
             client_grpc = Client_Remote()
             c_response = client_grpc.currency_converter(f"{json_response['location']}", querydata['conversion'], querydata['amount'])
-            return c_response
+            return False, c_response.json()
         
         
         except requests.exceptions.RequestException as e:
-            jsonstring = json.loads(query_response.text)
-            print(f"Error making request: {jsonstring['message']}")
-            return None
+            #jsonstring = json.loads(query_response.text)
+            #print(f"Error making request: {jsonstring['message']}")
+            return True, query_response.json()
 
     ### -----------------------------------------------------------------------------------------|
     #### Acá debo |(1)| crear las funciones para cada servicio donde organizado toda la URL,     |
@@ -128,7 +130,7 @@ class APIClient(cmd.Cmd):
         try:
             logout_response = requests.post(specurl, headers=headers)
             logout_response.raise_for_status()
-            return logout_response.json()
+            return True, logout_response.json()
         except requests.exceptions.RequestException as e:
-            print(f"Error making request: {e}")
-            return None
+            #print(f"Error making request: {e}")
+            return False, None

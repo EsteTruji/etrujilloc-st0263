@@ -10,6 +10,7 @@ def query_procedure():
     print("Please write the name of the file you are currently searching for:")
     file2search = input()
     querydata = {"filename": file2search}
+    print(querydata)
     return querydata
 
 def upload_procedure():
@@ -54,7 +55,9 @@ if __name__ == "__main__":
     username = input("Write your name: ")
     password = input("Write a password: ")
     user_url = os.getenv("EXPOSED_IP_PSERVER")
-    LogIn_data = {"username": username, "password": password, "user_url": user_url}
+    user_port = os.getenv("PSERVER_PORT")
+
+    LogIn_data = {"username": username, "password": password, "user_url": user_url+":"+user_port}
     
     login_response = setup.logIn(client.url_servidor, LogIn_data)
     
@@ -75,31 +78,48 @@ if __name__ == "__main__":
         
         if action == "1":
             querydata = query_procedure()
-            query_response = client.do_query(client.url_servidor, querydata, authToken)
-            print("Location:",query_response['location'])
+            error, query_response = client.do_query(client.url_servidor, querydata, authToken)
+            if error:
+                print(query_response['message'])
+            else:
+                print(query_response)
+
 
         
         elif action == "2":
             querydata = query_procedure()
-            query_response = client.do_download(client.url_servidor, querydata, authToken)
-            print(query_response)
-
+            error, query_response = client.do_download(client.url_servidor, querydata, authToken)
+            if error:
+                print(query_response['message'])
+            else:
+                sent_index_files = setup.do_sendIndex(client.url_servidor, [querydata['filename']], authToken)
+                print(query_response)
     
         elif action == "3":
             querydata = upload_procedure()
-            query_response = client.do_upload(client.url_servidor, querydata, authToken)
-            print(query_response)
+            error, query_response = client.do_upload(client.url_servidor, querydata, authToken)
+            if error:
+                print(query_response['message'])
+            else: 
+                sent_index_files = setup.do_sendIndex(client.url_servidor, [querydata['filename']], authToken)
+                print(query_response)
 
 
         elif action == "4":
             querydata = conversion_procedure()
-            query_response = client.do_conversion(client.url_servidor, querydata, authToken)
-            print(query_response)
+            error, query_response = client.do_conversion(client.url_servidor, querydata, authToken)
+            if error: 
+                print(query_response)
+            else: 
+                print()
 
 
         elif action == "5":
-            logout_response = client.logOut(client.url_servidor, authToken)
-            print(logout_response['message'])
+            error, logout_response = client.logOut(client.url_servidor, authToken)
+            if error:
+                print(logout_response['message'])
+            else:
+                print(logout_response['message'])
             break
 
         ### -------------------------------------------------------------------------------
