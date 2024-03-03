@@ -45,21 +45,24 @@ class APIClient(cmd.Cmd):
             return True, query_response.json()
         
     def do_download(self, url, querydata, authToken):
-        specurl = url + "api/v1/query?file=" + querydata['filename']
-        headers = {
-            "Authorization": authToken
-        }
+        error, query_response = self.do_query(self, url, querydata, authToken)
+        if error:
+            return query_response.json()
+        #specurl = url + "api/v1/query?file=" + querydata['filename']
+        #headers = {
+        #    "Authorization": authToken
+        #}
         try:
-            query_response = requests.get(specurl, headers=headers)
+            #query_response = requests.get(specurl, headers=headers)
             json_response = json.loads(query_response.text)
             client_grpc = Client_Remote()
             
             dresponse = client_grpc.download(f"{json_response['location']}", querydata['filename'])
-            return False, dresponse.json()
+            return False, dresponse
         
         
         except requests.exceptions.RequestException as e:
-            return True, query_response.json()
+            return True, query_response
         
     def do_upload(self, url, querydata, authToken):
         specurl = url + "api/v1/getPeerUploading"
@@ -73,11 +76,11 @@ class APIClient(cmd.Cmd):
             print("json: ",json_response)
             client_grpc = Client_Remote()
             upresponse = client_grpc.upload(f"{json_response['location']}", querydata['filename'])
-            return False, upresponse.json()
+            return False, upresponse
         
         
         except requests.exceptions.RequestException as e:
-            return True, query_response.json()
+            return True, query_response
         
     
     def do_conversion(self, url, querydata, authToken):
@@ -93,11 +96,11 @@ class APIClient(cmd.Cmd):
             print("json: ",json_response)
             client_grpc = Client_Remote()
             c_response = client_grpc.currency_converter(f"{json_response['location']}", querydata['conversion'], querydata['amount'])
-            return False, c_response.json()
+            return False, c_response
         
         
         except requests.exceptions.RequestException as e:
-            return True, query_response.json()
+            return True, query_response
 
 
 
