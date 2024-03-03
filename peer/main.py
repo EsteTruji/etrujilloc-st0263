@@ -21,6 +21,7 @@ def upload_procedure():
 
 def conversion_procedure():
     print("Please write the conversion type you want to do. Choose one of the following options:")
+    print(" ")
     print(" COP2USD - Colombian peso to American dollar.")
     print(" USD2COP - American dollar to Colombian peso.")
     print(" COP2EUR - Colombian peso to Euro.")
@@ -34,21 +35,17 @@ def conversion_procedure():
     print(" ")
 
     conversion_type = input("Conversion type: ")
-
+    print(" ")
     print("Now, please write the amount you want to convert:")
     print(" ")
 
     amount = float(input("Amount: "))
-
+    print(" ")
     querydata = {"conversion": conversion_type, "amount": amount}
     return querydata
     
 
 if __name__ == "__main__":
-    # if len(sys.argv) != 4:
-    #     print("Please run the client using the following format:")
-    #     print("python main.py <Username> <Password> <User url>")
-    #     sys.exit()
 
     client, messagec, setup = APIClient(), Messages(), SetUp()
 
@@ -66,7 +63,6 @@ if __name__ == "__main__":
     authToken = login_response['token']
 
     list = SetUp.get_files_in_folder()
-    #print(list)
     sent_index_files = setup.do_sendIndex(client.url_servidor, list, authToken)
     print(sent_index_files['message'])
     print("All files were successfully added to the index!!")
@@ -121,9 +117,3 @@ if __name__ == "__main__":
             else:
                 print(logout_response['message'])
             break
-
-        ### -------------------------------------------------------------------------------
-        #### Debo (1) crear las dos opciones para los servicios adicionales, (2) crear las
-        #### funciones para procesar la info necesaria. (3) Hacer llamado y enviar info a
-        #### las funciones del cliente gRPC correspondientes. 
-        ### -------------------------------------------------------------------------------

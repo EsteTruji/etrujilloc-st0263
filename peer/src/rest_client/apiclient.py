@@ -38,13 +38,10 @@ class APIClient(cmd.Cmd):
         try:
             query_response = requests.get(specurl, headers=headers)
             query_response.raise_for_status()
-            #client_grpc = Client_Remote()
-            #client_grpc.download(f"{self.ipl}:{self.port2}", querydata['filename'])
             return False, query_response.json()
         
         
         except requests.exceptions.RequestException as e:
-            #print(f"Error making request: {e}")
             return True, query_response.json()
         
     def do_download(self, url, querydata, authToken):
@@ -53,14 +50,8 @@ class APIClient(cmd.Cmd):
             "Authorization": authToken
         }
         try:
-            #print("llegue a try")
             query_response = requests.get(specurl, headers=headers)
-            #print("query response", query_response)
-            #query_response.raise_for_status()
-            #print(query_response)
             json_response = json.loads(query_response.text)
-            #print("json: ",json_response)
-            #print("query:", querydata)
             client_grpc = Client_Remote()
             
             dresponse = client_grpc.download(f"{json_response['location']}", querydata['filename'])
@@ -68,7 +59,6 @@ class APIClient(cmd.Cmd):
         
         
         except requests.exceptions.RequestException as e:
-            #print(f"Error making request: {e}")
             return True, query_response.json()
         
     def do_upload(self, url, querydata, authToken):
@@ -87,13 +77,11 @@ class APIClient(cmd.Cmd):
         
         
         except requests.exceptions.RequestException as e:
-            #jsonstring = json.loads(query_response.text)
-            #print(f"Error making request: {jsonstring['message']}")
             return True, query_response.json()
         
     
     def do_conversion(self, url, querydata, authToken):
-        specurl = url + "api/v1/getPeerUploading" ### Acá es donde debo definir la URL
+        specurl = url + "api/v1/getPeerUploading" 
         headers = {
             "Authorization": authToken
         }
@@ -109,15 +97,7 @@ class APIClient(cmd.Cmd):
         
         
         except requests.exceptions.RequestException as e:
-            #jsonstring = json.loads(query_response.text)
-            #print(f"Error making request: {jsonstring['message']}")
             return True, query_response.json()
-
-    ### -----------------------------------------------------------------------------------------|
-    #### Acá debo |(1)| crear las funciones para cada servicio donde organizado toda la URL,     |
-    #### |(2)| envío la data necesaria y |(3)| hago la creación del cliente gRPC, del cual debo  |
-    #### |(4)| llamar la función del servicio correspondiente y |(5)| recibir la respuesta.      |
-    ### -----------------------------------------------------------------------------------------|
 
 
 
@@ -132,5 +112,4 @@ class APIClient(cmd.Cmd):
             logout_response.raise_for_status()
             return True, logout_response.json()
         except requests.exceptions.RequestException as e:
-            #print(f"Error making request: {e}")
             return False, None
