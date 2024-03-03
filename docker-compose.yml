@@ -33,6 +33,23 @@ services:
     depends_on:
       - central_server
 
+  peer-2:
+    build:
+      context: ./peer
+    command: python main.py
+    env_file:
+      - ./peer/.env
+    expose:
+      - 9000
+    ports:
+      - 9000:9000
+    volumes:
+      - ./peer:/app
+    networks:
+      - reto-1
+    depends_on:
+      - central_server
+
 
 networks:
   reto-1:

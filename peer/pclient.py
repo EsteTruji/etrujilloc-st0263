@@ -10,10 +10,10 @@ def query_procedure():
     querydata = {"filename": file2search}
     return querydata
 
-def upload_procedure(username):
-    print("Please write the name of the file you are currently searching for:")
+def upload_procedure():
+    print("Please write the name of the file that you want to upload:")
     file2search = input()
-    querydata = {"filename": file2search, "username":username}
+    querydata = {"filename": file2search}
     return querydata
 
 def conversion_procedure():
@@ -37,7 +37,7 @@ def conversion_procedure():
 
     amount = float(input("Amount: "))
 
-    querydata = {"conversion": conversion_type, "amount": amount, "filename":"gatitos2.txt", "username":"Vivi"}
+    querydata = {"conversion": conversion_type, "amount": amount}
     return querydata
     
 
@@ -60,7 +60,7 @@ if __name__ == "__main__":
 
     list = SetUp.get_files_in_folder()
     #print(list)
-    sent_index_files = setup.do_sendIndex(client.url_servidor, list, username, authToken)
+    sent_index_files = setup.do_sendIndex(client.url_servidor, list, authToken)
     print(sent_index_files['message'])
     print("All files were successfully added to the index!!")
 
@@ -72,7 +72,7 @@ if __name__ == "__main__":
         if action == "1":
             querydata = query_procedure()
             query_response = client.do_query(client.url_servidor, querydata, authToken)
-            print("Localtion:",query_response['location'])
+            print("Location:",query_response['location'])
 
         
         elif action == "2":
@@ -82,7 +82,7 @@ if __name__ == "__main__":
 
     
         elif action == "3":
-            querydata = upload_procedure(username)
+            querydata = upload_procedure()
             query_response = client.do_upload(client.url_servidor, querydata, authToken)
             print(query_response)
 
@@ -94,8 +94,7 @@ if __name__ == "__main__":
 
 
         elif action == "5":
-            logoutdata = {"username": username}
-            logout_response = client.logOut(client.url_servidor, logoutdata, authToken)
+            logout_response = client.logOut(client.url_servidor, authToken)
             print(logout_response['message'])
             break
 

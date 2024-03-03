@@ -33,7 +33,7 @@ class APIClient(cmd.Cmd):
     def do_query(self, url, querydata, authToken):
         specurl = url + "api/v1/query?file=" + querydata['filename']
         headers = {
-            "authToken": authToken
+            "Authorization": authToken
         }
         try:
             query_response = requests.get(specurl, headers=headers)
@@ -50,7 +50,7 @@ class APIClient(cmd.Cmd):
     def do_download(self, url, querydata, authToken):
         specurl = url + "api/v1/query?file=" + querydata['filename']
         headers = {
-            "authToken": authToken
+            "Authorization": authToken
         }
         try:
             query_response = requests.get(specurl, headers=headers)
@@ -70,9 +70,9 @@ class APIClient(cmd.Cmd):
             return None
         
     def do_upload(self, url, querydata, authToken):
-        specurl = url + "api/v1/getPeerUploading?filename=" + querydata['filename'] + "&user=" + querydata['username']
+        specurl = url + "api/v1/getPeerUploading"
         headers = {
-            "authToken": authToken
+            "Authorization": authToken
         }
         try:
             query_response = requests.get(specurl, headers=headers)
@@ -80,7 +80,7 @@ class APIClient(cmd.Cmd):
             json_response = json.loads(query_response.text)
             print("json: ",json_response)
             client_grpc = Client_Remote()
-            client_grpc.upload(f"{json_response['message']}", querydata['filename'])
+            client_grpc.upload(f"{json_response['location']}", querydata['filename'])
             return query_response.json()
         
         
@@ -91,9 +91,9 @@ class APIClient(cmd.Cmd):
         
     
     def do_conversion(self, url, querydata, authToken):
-        specurl = url + "api/v1/getPeerUploading?filename=" + querydata['filename'] + "&user=" + querydata['username'] ### Acá es donde debo definir la URL
+        specurl = url + "api/v1/getPeerUploading" ### Acá es donde debo definir la URL
         headers = {
-            "authToken": authToken
+            "Authorization": authToken
         }
         try:
             query_response = requests.get(specurl, headers=headers)
@@ -102,7 +102,7 @@ class APIClient(cmd.Cmd):
             json_response = json.loads(query_response.text)
             print("json: ",json_response)
             client_grpc = Client_Remote()
-            c_response = client_grpc.currency_converter(f"{json_response['message']}", querydata['conversion'], querydata['amount'])
+            c_response = client_grpc.currency_converter(f"{json_response['location']}", querydata['conversion'], querydata['amount'])
             return c_response
         
         
@@ -120,13 +120,13 @@ class APIClient(cmd.Cmd):
 
 
 
-    def logOut(self, url, logout_data, authToken):
+    def logOut(self, url, authToken):
         specurl = url + "api/v1/logout"
         headers = {
-            "authToken": authToken
+            "Authorization": authToken
         }
         try:
-            logout_response = requests.post(specurl, json=logout_data, headers=headers)
+            logout_response = requests.post(specurl, headers=headers)
             logout_response.raise_for_status()
             return logout_response.json()
         except requests.exceptions.RequestException as e:

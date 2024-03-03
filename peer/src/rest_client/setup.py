@@ -22,15 +22,14 @@ class SetUp():
                 files_array.append(file_name)
         return files_array
     
-    def do_sendIndex(self, url, file_data, username, authToken):
+    def do_sendIndex(self, url, file_data, authToken):
         specurl = url + "api/v1/sendIndex"
         headers = {
             "Content-Type": "application/json",
-            "authToken": authToken
+            "Authorization": authToken
         }
 
         Index_data = {
-            "username": username,
             "files": file_data
         }
 
