@@ -136,7 +136,7 @@ if __name__ == "__main__":
             if error: 
                 print(query_response)
             else: 
-                print()
+                print(query_response)
 
 
         elif action == "5":
