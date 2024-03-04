@@ -1,4 +1,5 @@
 ## Link Video Sustentación: 👉👉 https://youtu.be/bUZKcVq7VSo
+[![Video sustentacion](https://img.youtube.com/vi/bUZKcVq7VSo/0.jpg)](https://youtu.be/bUZKcVq7VSo)
 
 # ST0263-TÓPICOS ESPECIALES EN TELEMATICA
 
