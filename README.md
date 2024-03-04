@@ -14,7 +14,7 @@
 Red P2P No estructurada basada en servidor central. En la cual cada proceso tiene uno o más microservicios que componen un sistema de compartición de archivos distribuido y descentralizado.  
 
 ## 1.1. Qué aspectos cumplió o desarrolló de la actividad propuesta por el profesor (requerimientos funcionales y no funcionales)
-### Requisitos funcionales
+### Requisitos funcionales.
 
 - Autenticación de peers (login, logout).
 - Consulta de recursos (sendIndex).
@@ -26,7 +26,7 @@ Red P2P No estructurada basada en servidor central. En la cual cada proceso tien
 - Implementación de Docker para el trabajo tanto del servidor central como de los peers.
 - Despliegue del reto en AWS Academy.
 
-### Requisitos no funcionales
+### Requisitos no funcionales.
 
 - Escalabilidad debido a la estructuración y a la arquitectura definida. 
 - Rendimiento debido a la separación de los peers y servidor central en instancias/máquinas separadas, una para cada uno de ellos.
@@ -52,7 +52,7 @@ Red P2P No estructurada basada en servidor central. En la cual cada proceso tien
 ### Patrones/Principios.
 - Se utilizó el principio DRY (Don't Repeat Yourself), en tanto se procuró no duplicar segmentos de código que podían ser llevados a otras carpetas y ser usados desde allí cada vez que se necesitara.
 
-# 3. Descripción del ambiente de desarrollo y técnico: lenguaje de programación, librerias, paquetes, etc, con sus números de versiones.
+# 3. Descripción del ambiente de desarrollo y técnico: lenguaje de programación, librerías, paquetes, etc, con sus números de versiones.
 
 ## Lenguajes de programación.
 Se utilizaron los lenguajes Python (para el peer, tanto pserver como pclient), y Go (para el servidor central).
@@ -81,7 +81,7 @@ touch .env
 vi .env
 ```
 
-Luego de crear los archivos de configuración, queda hacer _build_ y correr la parte del contenedor específica para cada isntancia.
+Luego de crear los archivos de configuración, queda hacer _build_ y correr la parte del contenedor específica para cada instancia.
 
 Para central-server:
 ```
@@ -118,7 +118,7 @@ El servidor central fue desarrollado en Golang y tanto el PCliente como el PServ
 - /query: dedicado para realizar la consulta de que si existe un determinado archivo en la red, y quién tendría ese archivo en caso tal de que sí existiera.
 - /getPeerUploading: dedicado para obtener un peer, siguiendo la secuencia dada por el Round Robin, con el fin de hacer un upload a este, o acceder a un servicio determinado que este brinda.
   
-## Descripción y como se configura los parámetros del proyecto (ej: ip, puertos, conexión a bases de datos, variables de ambiente, parámetros, etc)
+## Descripción y cómo se configura los parámetros del proyecto (ej: ip, puertos, conexión a bases de datos, variables de ambiente, parámetros, etc)
 
 En primer lugar, para configurar las IPs y puertos, es necesario ingresar a los archivos _docker-compose.yml_ (donde se debe configurar tanto el puerto del servidor central y del peer) y en los archivos _.env_ (donde se debe configurar nuevamente el puerto y la IP del servidor central y el peer). 
 
@@ -132,10 +132,16 @@ A continuación de se presenta la organización de las carpetas o directorios de
 
 ![image](https://github.com/EsteTruji/etrujilloc-st0263/assets/82886890/36491d24-8e4e-4ca9-aa7d-85304d80ceb9)
 
-# 4. Descripción del ambiente de EJECUCIÓN (en producción) lenguaje de programación, librerias, paquetes, etc, con sus numeros de versiones.
+# 4. Descripción del ambiente de EJECUCIÓN (en producción) lenguaje de programación, librerías, paquetes, etc, con sus números de versiones.
 ## IP o nombres de dominio en nube o en la máquina servidor.
+A continuación se listan las IPs correspondientes al estar desplegado en AWS:
+- **central-server:** 54.225.135.58.
+- **peer-1:** 34.230.125.86.
+- **peer-2:** 34.195.56.130.
 
-## Descripción y como se configura los parámetros del proyecto (ej: ip, puertos, conexión a bases de datos, variables de ambiente, parámetros, etc)
+**Aclaración:** No se usaron nombres de dominio debido al alcance del reto, el cual no requería la utilización de estos.
+
+## Descripción y cómo se configura los parámetros del proyecto (ej: ip, puertos, conexión a bases de datos, variables de ambiente, parámetros, etc)
 En primer lugar, para configurar las IPs y puertos, es necesario ingresar a los archivos _docker-compose.yml_ (donde se debe configurar tanto el puerto del servidor central y del peer) y en los archivos _.env_ (donde se debe configurar nuevamente el puerto y la IP del servidor central y el peer). 
 
 En segundo lugar, con relación a las variables de entorno, estas se ubicaron en los archivos .env tanto del peer como del servidor central según correspondieran. 
@@ -146,15 +152,20 @@ Finalmente, en cuanto a bases de datos, no fueron utilizadas para este proyecto 
 El servidor central se lanza utilizando el comando ```docker compose up``` estando ubicado en la instancia que le corresponde. 
 **Aclaración:** Si antes no se había creado la imagen del servidor central, es necesario correr previamente el comando ```docker compose build```.
 
-## Una mini guia de como un usuario utilizaría el software o la aplicación
+## Una mini guía de cómo un usuario utilizaría el software o la aplicación.
 A manera de mini guía de usuario es posible utilizar la dada en la sección 3, en la parte de **Cómo se compila y ejecuta.**
+Una vez se hayan creado y ejecutado los contenedores en docker el usuario tendra acceso a todos los servicios disponibles en el cliente, a continuación se incluye una imagen del menu principal del CLI:
+
+![image](https://github.com/EsteTruji/etrujilloc-st0263/assets/82886890/62859394-18d8-454a-938f-f3ad6f0f95e7)
+
+Para utilizar cualquier servicio bastara con que que el usuario ingrese por terminal el numero que le corresponde.
+Una vez selecionado el servicio, el programa le preguntara por mas informacion adicional en caso de ser requerido (ej. Archivo a descargar).
+Una vez se complete la operacion dentro del servicio el programa volvera a su menu principal en la que el ususario podra elegir su propia operación.
 
 # 6. Otra información que considere relevante para esta actividad.
 
 # Referencias:
-<debemos siempre reconocer los créditos de partes del código que reutilizaremos, así como referencias a youtube, o referencias bibliográficas utilizadas para desarrollar el proyecto o la actividad>
 
-sitio1-url
-sitio2-url
-url de donde tomo info para desarrollar este proyecto
-
+MissCoding. (2022, 9 mayo). Python gRPC Tutorial - Create a gRPC Client and Server in Python with Various Types of gRPC Calls [Vídeo]. YouTube. https://www.youtube.com/watch?v=WB37L7PjI5k
+«Install Docker Engine on Ubuntu». (2024, 31 enero). Docker Documentation. https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
+**Link de descripción del proyecto:** https://eafit-my.sharepoint.com/:w:/g/personal/emontoya_eafit_edu_co/EV2oSNr67ydEktUmUsajFLYB7nTb7Hv21Vk4TWRBZ9E9-w?e=jpMwDz
