@@ -11,7 +11,7 @@
 
 # 1. Breve descripción de la actividad
 
-Red P2P No estructurada basada en servidor central. En la cual cada proceso tiene uno o más microservicios que componen un sistema de compartición de archivos distribuido y descentralizado.  
+Esencialmente, la actividad consistió en la construcción de una red P2P No estructurada basada en servidor central, en la cual cada proceso tiene uno o más microservicios que componen un sistema de compartición de archivos distribuido y descentralizado. Ademmás, se utilizaron diferentes tipos de comunicación o middlewares como gRPC y REST API.   
 
 ## 1.1. Qué aspectos cumplió o desarrolló de la actividad propuesta por el profesor (requerimientos funcionales y no funcionales)
 ### Requisitos funcionales.
@@ -132,7 +132,7 @@ En segundo lugar, con relación a las variables de entorno, estas se ubicaron en
 Finalmente, en cuanto a bases de datos, no fueron utilizadas para este proyecto debido a su alcance, sino que se utilizó el almacenamiento en local (en la misma máquina donde se ejecuta el código).
 
 
-## Opcional - detalles de la organización del código por carpetas o descripción de algún archivo.
+## Detalles de la organización del código por carpetas o descripción de algún archivo.
 A continuación de se presenta la organización de las carpetas o directorios del reto:
 
 ![image](https://github.com/EsteTruji/etrujilloc-st0263/assets/82886890/36491d24-8e4e-4ca9-aa7d-85304d80ceb9)
