@@ -41,7 +41,12 @@ Red P2P No estructurada basada en servidor central. En la cual cada proceso tien
 # 2. Información general de diseño de alto nivel, arquitectura, patrones, mejores prácticas utilizadas.
 
 ### Arquitectura:
-- Se tiene una arquitectura Peer-to-Peer, con la peculiaridad de poseer de igual manera un servidor central. 
+- Se tiene una arquitectura Peer-to-Peer, con la peculiaridad de poseer de igual manera un servidor central. A continuación se muestra unas imágenes de la arquitectura:
+#### Arquitectura de la red (bosquejo).
+![image](https://github.com/EsteTruji/etrujilloc-st0263/assets/82886890/3314db74-927c-41e3-b6fb-265b8d905e0b)
+
+#### Arquitectura de la solución.
+![image](https://github.com/EsteTruji/etrujilloc-st0263/assets/82886890/0fdcd573-d809-4842-9d17-6124b5d319bd)
 
 ### Mejores Prácticas.
 
@@ -162,10 +167,9 @@ Para utilizar cualquier servicio bastara con que que el usuario ingrese por term
 Una vez selecionado el servicio, el programa le preguntara por mas informacion adicional en caso de ser requerido (ej. Archivo a descargar).
 Una vez se complete la operacion dentro del servicio el programa volvera a su menu principal en la que el ususario podra elegir su propia operación.
 
-# 6. Otra información que considere relevante para esta actividad.
-
 # Referencias:
 
-MissCoding. (2022, 9 mayo). Python gRPC Tutorial - Create a gRPC Client and Server in Python with Various Types of gRPC Calls [Vídeo]. YouTube. https://www.youtube.com/watch?v=WB37L7PjI5k
-«Install Docker Engine on Ubuntu». (2024, 31 enero). Docker Documentation. https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
+- MissCoding. (2022, 9 mayo). Python gRPC Tutorial - Create a gRPC Client and Server in Python with Various Types of gRPC Calls [Vídeo]. YouTube. https://www.youtube.com/watch?v=WB37L7PjI5k
+- «Install Docker Engine on Ubuntu». (2024, 31 enero). Docker Documentation. https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
+
 **Link de descripción del proyecto:** https://eafit-my.sharepoint.com/:w:/g/personal/emontoya_eafit_edu_co/EV2oSNr67ydEktUmUsajFLYB7nTb7Hv21Vk4TWRBZ9E9-w?e=jpMwDz
