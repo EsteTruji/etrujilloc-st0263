@@ -125,10 +125,13 @@ El servidor central fue desarrollado en Golang y tanto el PCliente como el PServ
   
 ## Descripción y cómo se configura los parámetros del proyecto (ej: ip, puertos, conexión a bases de datos, variables de ambiente, parámetros, etc)
 
+### IPs y puertos.
 En primer lugar, para configurar las IPs y puertos, es necesario ingresar a los archivos _docker-compose.yml_ (donde se debe configurar tanto el puerto del servidor central y del peer) y en los archivos _.env_ (donde se debe configurar nuevamente el puerto y la IP del servidor central y el peer). 
 
+### Variables de entorno/ambiente.
 En segundo lugar, con relación a las variables de entorno, estas se ubicaron en los archivos .env tanto del peer como del servidor central según correspondieran. 
 
+### Base de datos.
 Finalmente, en cuanto a bases de datos, no fueron utilizadas para este proyecto debido a su alcance, sino que se utilizó el almacenamiento en local (en la misma máquina donde se ejecuta el código).
 
 
