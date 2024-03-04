@@ -107,7 +107,7 @@ Con esto ya todas las instancias están corriendo y se pueden realizar las prueb
 
 ## Detalles del desarrollo.
 
-El servidor central fue desarrollado en Golang y tanto el PCliente como el PServidor fueron desarrollados en Python. Se desplegaron tres instancias EC2 de AWS, una para el servidor central (central-server), y dos para peers (peer1 y peer2).
+El servidor central fue desarrollado en Golang y tanto el PCliente como el PServidor fueron desarrollados en Python. Se desplegaron tres instancias EC2 de AWS, una para el servidor central (central-server), y dos para peers (peer1 y peer2). A cada una de esas instancias se le asignó una IP elástica para evitar el cambio de la misma cada vez que se apagara o reiniciara alguna de ellas, o el Learner Lab en sí. Todos los elementos y componentes del proyecto (servidor central, peer) fueron completamente contenerizados usando Docker.
 
 ## Detalles técnicos
 
@@ -115,9 +115,17 @@ Endpoints:
 
 ## Descripción y como se configura los parámetros del proyecto (ej: ip, puertos, conexión a bases de datos, variables de ambiente, parámetros, etc)
 
-Como ya fue mencionado las ip's se configuran en los archivos de _docker-compose.yml_ y en los archivos _.env_, lo mismo para las variables de entorno. En cuanto a bases de datos, no fueron utilizadas para este proyecto. 
+En primer lugar, para configurar las IPs y puertos, es necesario ingresar a los archivos _docker-compose.yml_ (donde se debe configurar tanto el puerto del servidor central y del peer) y en los archivos _.env_ (donde se debe configurar nuevamente el puerto y la IP del servidor central y el peer). 
+
+En segundo lugar, con relación a las variables de entorno, estas se ubicaron en los archivos .env tanto del peer como del servidor central según correspondieran. 
+
+Finalmente, en cuanto a bases de datos, no fueron utilizadas para este proyecto debido a su alcance, sino que se utilizó el almacenamiento en local (en la misma máquina donde se ejecuta el código).
 
 
-## Opcional - detalles de la organización del código por carpetas o descripción de algún archivo. (ESTRUCTURA DE DIRECTORIOS Y ARCHIVOS IMPORTANTE DEL PROYECTO, comando 'tree' de linux)
-## 
+## Opcional - detalles de la organización del código por carpetas o descripción de algún archivo.
+A continuación de se presenta la organización de las carpetas o directorios del reto:
+
+![image](https://github.com/EsteTruji/etrujilloc-st0263/assets/82886890/76536d6b-02df-45ee-be16-d2950fac0993)
+
+![image](https://github.com/EsteTruji/etrujilloc-st0263/assets/82886890/cadf74d0-e3dd-4eab-ba33-66719f4ed694)
 
