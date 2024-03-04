@@ -54,10 +54,9 @@ class APIClient(cmd.Cmd):
         #}
         try:
             #query_response = requests.get(specurl, headers=headers)
-            json_response = json.loads(query_response)
             client_grpc = Client_Remote()
             
-            dresponse = client_grpc.download(f"{json_response['location']}", querydata['filename'])
+            dresponse = client_grpc.download(f"{query_response['location']}", querydata['filename'])
             return False, dresponse
         
         
