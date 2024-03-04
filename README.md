@@ -130,9 +130,31 @@ Finalmente, en cuanto a bases de datos, no fueron utilizadas para este proyecto 
 ## Opcional - detalles de la organización del código por carpetas o descripción de algún archivo.
 A continuación de se presenta la organización de las carpetas o directorios del reto:
 
-![image](https://github.com/EsteTruji/etrujilloc-st0263/assets/82886890/76536d6b-02df-45ee-be16-d2950fac0993)
+![image](https://github.com/EsteTruji/etrujilloc-st0263/assets/82886890/36491d24-8e4e-4ca9-aa7d-85304d80ceb9)
 
-![image](https://github.com/EsteTruji/etrujilloc-st0263/assets/82886890/cadf74d0-e3dd-4eab-ba33-66719f4ed694)
+# 4. Descripción del ambiente de EJECUCIÓN (en producción) lenguaje de programación, librerias, paquetes, etc, con sus numeros de versiones.
+## IP o nombres de dominio en nube o en la máquina servidor.
 
+## Descripción y como se configura los parámetros del proyecto (ej: ip, puertos, conexión a bases de datos, variables de ambiente, parámetros, etc)
+En primer lugar, para configurar las IPs y puertos, es necesario ingresar a los archivos _docker-compose.yml_ (donde se debe configurar tanto el puerto del servidor central y del peer) y en los archivos _.env_ (donde se debe configurar nuevamente el puerto y la IP del servidor central y el peer). 
 
+En segundo lugar, con relación a las variables de entorno, estas se ubicaron en los archivos .env tanto del peer como del servidor central según correspondieran. 
+
+Finalmente, en cuanto a bases de datos, no fueron utilizadas para este proyecto debido a su alcance, sino que se utilizó el almacenamiento en local (en la misma máquina donde se ejecuta el código).
+
+## Cómo se lanza el servidor.
+El servidor central se lanza utilizando el comando ```docker compose up``` estando ubicado en la instancia que le corresponde. 
+**Aclaración:** Si antes no se había creado la imagen del servidor central, es necesario correr previamente el comando ```docker compose build```.
+
+## Una mini guia de como un usuario utilizaría el software o la aplicación
+A manera de mini guía de usuario es posible utilizar la dada en la sección 3, en la parte de **Cómo se compila y ejecuta.**
+
+# 6. Otra información que considere relevante para esta actividad.
+
+# Referencias:
+<debemos siempre reconocer los créditos de partes del código que reutilizaremos, así como referencias a youtube, o referencias bibliográficas utilizadas para desarrollar el proyecto o la actividad>
+
+sitio1-url
+sitio2-url
+url de donde tomo info para desarrollar este proyecto
 
