@@ -111,13 +111,13 @@ El servidor central fue desarrollado en Golang y tanto el PCliente como el PServ
 
 ## Detalles técnicos
 **Endpoints:**
-- /login
-- /logout
-- /sendIndex
-- /indexTable
-- /query
-- /getPeerUploading
-- 
+- /login: dedicado para llevar a cabo el login de un peer a la red P2P.
+- /logout: dedicado para llevar a cabo el logout de un peer de la red P2P.
+- /sendIndex: dedicado para enviar al servidor central los índices de los archivos que posee actualmente un determinado peer.
+- /indexTable: dedicado para obtener la tabla de los índices de archivos existentes en la red P2P.
+- /query: dedicado para realizar la consulta de que si existe un determinado archivo en la red, y quién tendría ese archivo en caso tal de que sí existiera.
+- /getPeerUploading: dedicado para obtener un peer, siguiendo la secuencia dada por el Round Robin, con el fin de hacer un upload a este, o acceder a un servicio determinado que este brinda.
+  
 ## Descripción y como se configura los parámetros del proyecto (ej: ip, puertos, conexión a bases de datos, variables de ambiente, parámetros, etc)
 
 En primer lugar, para configurar las IPs y puertos, es necesario ingresar a los archivos _docker-compose.yml_ (donde se debe configurar tanto el puerto del servidor central y del peer) y en los archivos _.env_ (donde se debe configurar nuevamente el puerto y la IP del servidor central y el peer). 
