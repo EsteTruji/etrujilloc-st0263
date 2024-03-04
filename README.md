@@ -115,7 +115,14 @@ Con esto ya todas las instancias están corriendo y se pueden realizar las prueb
 El servidor central fue desarrollado en Golang y tanto el PCliente como el PServidor fueron desarrollados en Python. Se desplegaron tres instancias EC2 de AWS, una para el servidor central (central-server), y dos para peers (peer1 y peer2). A cada una de esas instancias se le asignó una IP elástica para evitar el cambio de la misma cada vez que se apagara o reiniciara alguna de ellas, o el Learner Lab en sí. Todos los elementos y componentes del proyecto (servidor central, peer) fueron completamente contenerizados usando Docker.
 
 ## Detalles técnicos
-**Endpoints:**
+### Servicios:
+En este sistema se ofrecen los siguientes servicios:
+- **Query:** Consiste en realizar una consulta al servidor central para saber si existe determinado archivo en la red P2P, y en el caso de que sí exista, mande la dirección del peer en el cual se encuentra.
+- **Download:** Consiste en realizar una consulta al servidor central para, primero, saber si existe determinado archivo en la red P2P, segundo, en el caso de que sí exista, mande la dirección del peer en el cual se encuentra, y tercero, permita la descarga de dicho archivo en el peer propio.
+- **Upload:** Consiste en realizar una subida de un archivo determinado a alguno de los peer de la red, siguiendo la directriz del Round Robin.
+- **Currency converter:** Consiste en realizar la conversión de un determinado valor de una moneda específica, a otra diferente.
+
+### Endpoints.
 - /login: dedicado para llevar a cabo el login de un peer a la red P2P.
 - /logout: dedicado para llevar a cabo el logout de un peer de la red P2P.
 - /sendIndex: dedicado para enviar al servidor central los índices de los archivos que posee actualmente un determinado peer.
