@@ -1,15 +1,15 @@
 ## Link Video Sustentación: https://youtu.be/bUZKcVq7VSo
 
-# ST0263-TOPICOS ESPECIALES EN TELEMATICA
+# ST0263-TÓPICOS ESPECIALES EN TELEMATICA
 
 ## Estudiante(s): Esteban Trujillo Carmona, etrujillo@eafit.edu.co
 
-## Profesor: Edwin Nelson Montoya Munera, emontoya@eafit.edu.co
+## Profesor: Edwin Nelson Montoya Múnera, emontoya@eafit.edu.co
 
 
 # Reto 1 y 2
 
-# 1. Breve descripción de la actividad
+# 1. Breve descripción de la actividad.
 
 Esencialmente, la actividad consistió en la construcción de una red P2P No estructurada basada en servidor central, en la cual cada proceso tiene uno o más microservicios que componen un sistema de compartición de archivos distribuido y descentralizado. Ademmás, se utilizaron diferentes tipos de comunicación o middlewares como gRPC y REST API.   
 
