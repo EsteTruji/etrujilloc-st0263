@@ -40,14 +40,27 @@ Red P2P No estructurada basada en servidor central. En la cual cada proceso tien
 
 # 2. Información general de diseño de alto nivel, arquitectura, patrones, mejores prácticas utilizadas.
 
+### Arquitectura:
+- Se tiene una arquitectura Peer-to-Peer, con la peculiaridad de poseer de igual manera un servidor central. 
+
 ### Mejores Prácticas.
 
 - Distribución modular: El sistema se organizó de tal manera que todos los servicios y módulos de clientes y server grpc, tuvieran su propio archivo y carpeta, para que sea más fácil localizar los archivos a la hora de hacer cambios.
 - Escalabilidad horizontal: Esto nos permite agregar tantos peers como queramos fácilmente.
 - Gestión de configuraciones: Toda la información sensible como ips o puertos quedó guardada en un archivo de configuración y no quemada dentro del código.
-- Tolerancia a fallos: 
 
-# 3. Descripción del ambiente de desarrollo y técnico: lenguaje de programación, librerias, paquetes, etc, con sus numeros de versiones.
+### Patrones/Principios.
+- Se utilizó el principio DRY (Don't Repeat Yourself), en tanto se procuró no duplicar segmentos de código que podían ser llevados a otras carpetas y ser usados desde allí cada vez que se necesitara.
+
+# 3. Descripción del ambiente de desarrollo y técnico: lenguaje de programación, librerias, paquetes, etc, con sus números de versiones.
+
+## Lenguajes de programación.
+Se utilizaron los lenguajes Python (para el peer, tanto pserver como pclient), y Go (para el servidor central).
+
+## Librerías/paquetes.
+Las librerías utilizadas fueron:
+- **Python:** load_dotenv, os, sys, grpc, futures, requests, cmd, json.
+- **Go:** errors, bcrypt, jwt, fmt, os, time, regexp, strings, net/http, strconv, gin. 
 
 ## Cómo se compila y ejecuta.
 
