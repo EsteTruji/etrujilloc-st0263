@@ -2,10 +2,8 @@
 
 # ST0263-TÓPICOS ESPECIALES EN TELEMATICA
 
-## Estudiante(s): Esteban Trujillo Carmona, etrujillo@eafit.edu.co
-
-## Profesor: Edwin Nelson Montoya Múnera, emontoya@eafit.edu.co
-
+- **Estudiante(s):** Esteban Trujillo Carmona, etrujillo@eafit.edu.co
+- **Profesor:** Edwin Nelson Montoya Múnera, emontoya@eafit.edu.co
 
 # Reto 1 y 2
 
