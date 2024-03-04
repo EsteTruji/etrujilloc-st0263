@@ -1,15 +1,15 @@
 ## Link Video Sustentación: https://youtu.be/bUZKcVq7VSo
 
-# info de la materia: ST0263-TOPICOS ESPECIALES EN TELEMATICA
+# ST0263-TOPICOS ESPECIALES EN TELEMATICA
 
-# Estudiante(s): Esteban Trujillo Carmona, etrujillo@eafit.edu.co
+## Estudiante(s): Esteban Trujillo Carmona, etrujillo@eafit.edu.co
 
-# Profesor: Edwin Nelson Montoya Munera, emontoya@eafit.edu.co
+## Profesor: Edwin Nelson Montoya Munera, emontoya@eafit.edu.co
 
 
-# nombre del proyecto: Reto 1 y 2
+# Reto 1 y 2
 #
-# 1. breve descripción de la actividad
+# 1. Breve descripción de la actividad
 #
 <texto descriptivo>
 ## 1.1. Que aspectos cumplió o desarrolló de la actividad propuesta por el profesor (requerimientos funcionales y no funcionales) -
