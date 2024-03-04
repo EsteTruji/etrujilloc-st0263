@@ -63,7 +63,7 @@ Se utilizaron los lenguajes Python (para el peer, tanto pserver como pclient), y
 
 ## Librerías/paquetes.
 Las librerías utilizadas fueron:
-- **Python:** load_dotenv, os, sys, grpc, futures, requests, cmd, json.
+- **Python:** os, sys, grpc, futures, requests, cmd, json, grpcio, grpcio-tools, protobuf, python-dotenv.
 - **Go:** errors, bcrypt, jwt, fmt, os, time, regexp, strings, net/http, strconv, gin. 
 
 ## Cómo se compila y ejecuta.
