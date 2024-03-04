@@ -95,6 +95,8 @@ if __name__ == "__main__":
         action = input()
         
         if action == "1":
+            list = SetUp.get_files_in_folder()
+            sent_index_files = setup.do_sendIndex(client.url_servidor, list, authToken)
             querydata = query_procedure()
             error, query_response = client.do_query(client.url_servidor, querydata, authToken)
             if error:
@@ -105,6 +107,8 @@ if __name__ == "__main__":
 
         
         elif action == "2":
+            list = SetUp.get_files_in_folder()
+            sent_index_files = setup.do_sendIndex(client.url_servidor, list, authToken)
             querydata = query_procedure()
             error, query_response = client.do_download(client.url_servidor, querydata, authToken)
             if error:
@@ -114,16 +118,19 @@ if __name__ == "__main__":
                 print(query_response)
     
         elif action == "3":
+            list = SetUp.get_files_in_folder()
+            sent_index_files = setup.do_sendIndex(client.url_servidor, list, authToken)
             querydata = upload_procedure()
             error, query_response = client.do_upload(client.url_servidor, querydata, authToken)
             if error:
                 print(query_response['message'])
             else: 
-                sent_index_files = setup.do_sendIndex(client.url_servidor, [querydata['filename']], authToken)
                 print(query_response)
 
 
         elif action == "4":
+            list = SetUp.get_files_in_folder()
+            sent_index_files = setup.do_sendIndex(client.url_servidor, list, authToken)
             querydata = conversion_procedure()
             error, query_response = client.do_conversion(client.url_servidor, querydata, authToken)
             if error: 
