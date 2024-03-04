@@ -1,8 +1,8 @@
-# Link Video Sustentación: https://youtu.be/bUZKcVq7VSo
+## Link Video Sustentación: https://youtu.be/bUZKcVq7VSo
 
 # info de la materia: ST0263-TOPICOS ESPECIALES EN TELEMATICA
 
-# Estudiante(s): Viviana Hoyos Sierra, vhoyoss@eafit.edu.co
+# Estudiante(s): Esteban Trujillo Carmona, etrujillo@eafit.edu.co
 
 # Profesor: Edwin Nelson Montoya Munera, emontoya@eafit.edu.co
 
