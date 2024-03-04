@@ -110,9 +110,14 @@ Con esto ya todas las instancias están corriendo y se pueden realizar las prueb
 El servidor central fue desarrollado en Golang y tanto el PCliente como el PServidor fueron desarrollados en Python. Se desplegaron tres instancias EC2 de AWS, una para el servidor central (central-server), y dos para peers (peer1 y peer2). A cada una de esas instancias se le asignó una IP elástica para evitar el cambio de la misma cada vez que se apagara o reiniciara alguna de ellas, o el Learner Lab en sí. Todos los elementos y componentes del proyecto (servidor central, peer) fueron completamente contenerizados usando Docker.
 
 ## Detalles técnicos
-
-Endpoints: 
-
+**Endpoints:**
+- /login
+- /logout
+- /sendIndex
+- /indexTable
+- /query
+- /getPeerUploading
+- 
 ## Descripción y como se configura los parámetros del proyecto (ej: ip, puertos, conexión a bases de datos, variables de ambiente, parámetros, etc)
 
 En primer lugar, para configurar las IPs y puertos, es necesario ingresar a los archivos _docker-compose.yml_ (donde se debe configurar tanto el puerto del servidor central y del peer) y en los archivos _.env_ (donde se debe configurar nuevamente el puerto y la IP del servidor central y el peer). 
@@ -128,4 +133,6 @@ A continuación de se presenta la organización de las carpetas o directorios de
 ![image](https://github.com/EsteTruji/etrujilloc-st0263/assets/82886890/76536d6b-02df-45ee-be16-d2950fac0993)
 
 ![image](https://github.com/EsteTruji/etrujilloc-st0263/assets/82886890/cadf74d0-e3dd-4eab-ba33-66719f4ed694)
+
+
 
