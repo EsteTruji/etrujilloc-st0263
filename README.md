@@ -8,12 +8,12 @@
 
 
 # Reto 1 y 2
-#
+
 # 1. Breve descripción de la actividad
 
 Red P2P No estructurada basada en servidor central. En la cual cada proceso tiene uno o más microservicios que componen un sistema de compartición de archivos distribuido y descentralizado.  
 
-## 1.1. Que aspectos cumplió o desarrolló de la actividad propuesta por el profesor (requerimientos funcionales y no funcionales)
+## 1.1. Qué aspectos cumplió o desarrolló de la actividad propuesta por el profesor (requerimientos funcionales y no funcionales)
 ### Requisitos funcionales
 
 - Autenticación de peers (login, logout).
@@ -33,14 +33,14 @@ Red P2P No estructurada basada en servidor central. En la cual cada proceso tien
 - Disponibilidad en tanto el servidor central y los pservers estaban siempre pendientes de cualquier query que pudieran hacerles a ellos.
 - Concurrencia en la respuesta de las requests por parte del servidor central y de los pservers de los peers.
 
-## 1.2. Que aspectos NO cumplió o desarrolló de la actividad propuesta por el profesor (requerimientos funcionales y no funcionales)
+## 1.2. Qué aspectos NO cumplió o desarrolló de la actividad propuesta por el profesor (requerimientos funcionales y no funcionales)
 - No se implementó MOM en tanto el profesor recomendó finalmente no hcaerlo.
 - No se hace la transferencia periódica del índice de archivos de manera independiente, sino que se transfiere cada que un peer realiza alguna acción dentro de la red, es decir, cuando hay alguna actualización.
 - No se realizó lo relacionado con el peer titular y peer suplente, en tanto el profesor recomendó finalmente no hacerlo.
 
-# 2. información general de diseño de alto nivel, arquitectura, patrones, mejores prácticas utilizadas.
+# 2. Información general de diseño de alto nivel, arquitectura, patrones, mejores prácticas utilizadas.
 
-### Mejores Prácticas
+### Mejores Prácticas.
 
 - Distribución modular: El sistema se organizó de tal manera que todos los servicios y módulos de clientes y server grpc, tuvieran su propio archivo y carpeta, para que sea más fácil localizar los archivos a la hora de hacer cambios.
 - Escalabilidad horizontal: Esto nos permite agregar tantos peers como queramos fácilmente.
@@ -49,7 +49,7 @@ Red P2P No estructurada basada en servidor central. En la cual cada proceso tien
 
 # 3. Descripción del ambiente de desarrollo y técnico: lenguaje de programación, librerias, paquetes, etc, con sus numeros de versiones.
 
-## Como se compila y ejecuta.
+## Cómo se compila y ejecuta.
 
 Primero se deben crear las instancias correpondientes en AWS, de central-server, peer1 y peer2. Preferiblemente con ip's elásticas.
 
