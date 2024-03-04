@@ -146,6 +146,7 @@ A continuación de se presenta la organización de las carpetas o directorios de
 ![image](https://github.com/EsteTruji/etrujilloc-st0263/assets/82886890/36491d24-8e4e-4ca9-aa7d-85304d80ceb9)
 
 # 4. Descripción del ambiente de EJECUCIÓN (en producción) lenguaje de programación, librerías, paquetes, etc, con sus números de versiones.
+Toda la información relacionada con los **lenguajes de programación**, **librerías**, **paquetes**, y demás, se encuentra ubicada en la sección 3.
 ## IP o nombres de dominio en nube o en la máquina servidor.
 A continuación se listan las IPs correspondientes al estar desplegado en AWS:
 - **central-server:** 54.225.135.58.
