@@ -16,20 +16,27 @@ Red P2P No estructurada basada en servidor central. En la cual cada proceso tien
 ## 1.1. Que aspectos cumplió o desarrolló de la actividad propuesta por el profesor (requerimientos funcionales y no funcionales)
 ### Requisitos funcionales
 
-- Autenticación de peers (login, logout)
-- Consulta de recursos (sendIndex)
+- Autenticación de peers (login, logout).
+- Consulta de recursos (sendIndex).
 - Servicio de transferencia de archivos (download, upload)
-- Servicio de cambio de moneda (currency exchange)
+- Servicio de cambio de moneda (currency exchange).
+- Rotación de las responsabilidades (Round Robin).
+- Servicio de Bootstrap o inicialización de los nuevos peers a la red P2P.
+- Implementación de los tipos de comunicación tanto REST API como gRPC.
+- Implementación de Docker para el trabajo tanto del servidor central como de los peers.
+- Despliegue del reto en AWS Academy.
 
 ### Requisitos no funcionales
 
-- Escalabilidad
-- Rendimiento
-- Mantenibilidad
-- Disponibilidad
+- Escalabilidad debido a la estructuración y a la arquitectura definida. 
+- Rendimiento debido a la separación de los peers y servidor central en instancias/máquinas separadas, una para cada uno de ellos.
+- Disponibilidad en tanto el servidor central y los pservers estaban siempre pendientes de cualquier query que pudieran hacerles a ellos.
+- Concurrencia en la respuesta de las requests por parte del servidor central y de los pservers de los peers.
 
 ## 1.2. Que aspectos NO cumplió o desarrolló de la actividad propuesta por el profesor (requerimientos funcionales y no funcionales)
-
+- No se implementó MOM en tanto el profesor recomendó finalmente no hcaerlo.
+- No se hace la transferencia periódica del índice de archivos de manera independiente, sino que se transfiere cada que un peer realiza alguna acción dentro de la red, es decir, cuando hay alguna actualización.
+- No se realizó lo relacionado con el peer titular y peer suplente, en tanto el profesor recomendó finalmente no hacerlo.
 
 # 2. información general de diseño de alto nivel, arquitectura, patrones, mejores prácticas utilizadas.
 
@@ -101,6 +108,3 @@ Como ya fue mencionado las ip's se configuran en los archivos de _docker-compose
 ## Opcional - detalles de la organización del código por carpetas o descripción de algún archivo. (ESTRUCTURA DE DIRECTORIOS Y ARCHIVOS IMPORTANTE DEL PROYECTO, comando 'tree' de linux)
 ## 
 
-#### Video
-
-link:  https://youtu.be/QJnk5angS9A
